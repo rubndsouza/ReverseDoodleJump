@@ -12,23 +12,8 @@ public class DrawCollider : MonoBehaviour
 	private int lineObjNum = 0;
 
 
-	void OnTriggerEnter(Collider hit)
-    {
-		Debug.Log("hello");
-		line.SetColors(Color.red, Color.red);
-	}
 	void Update() 
 	{
-		/*if(Input.GetMouseButtonDown(1)) {
-					Debug.Log("rc");
-
-			//GameObject myGameObject = new GameObject("Test Object"); // Make a new GO.
-			Rigidbody2D gameObjectsRigidBody = gameObject.AddComponent<Rigidbody2D>(); // Add the rigidbody.
-			gameObjectsRigidBody.mass = 5; // Set the GO's mass to 5 via the Rigidbody.
-			gameObjectsRigidBody.gravityScale = 0.2f;
-			SpriteRenderer spr = gameObject.GetComponent<SpriteRenderer>();
-			spr.enabled = true;
-		}*/
 		
 		// On mouse down new line will be created 
 		if(Input.GetMouseButtonDown(0))
@@ -42,7 +27,8 @@ public class DrawCollider : MonoBehaviour
 			mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			mousePos.z = 0;
 			line.SetPosition(0,mousePos);
-			startPos = mousePos;
+            line.SetPosition(1, mousePos);
+            startPos = mousePos;
 		}
 		else if(Input.GetMouseButtonUp(0))
 		{
